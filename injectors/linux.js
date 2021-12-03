@@ -14,11 +14,11 @@ const { BasicMessages, AnsiEscapes } = require('./log');
 const homedir = execSync('grep $(logname) /etc/passwd | cut -d ":" -f6').toString().trim();
 
 const KnownLinuxPaths = Object.freeze([
-  '/usr/share/discord-canary',
-  '/usr/lib64/discord-canary',
-  '/opt/discord-canary',
-  '/opt/DiscordCanary',
-  `${homedir}/.local/bin/DiscordCanary` // https://github.com/powercord-org/powercord/pull/370
+  '/usr/share/discord',
+  '/usr/lib64/discord',
+  '/opt/discord',
+  '/opt/Discord',
+  `${homedir}/.local/bin/Discord` // https://github.com/powercord-org/powercord/pull/370
 ]);
 
 
@@ -27,7 +27,7 @@ exports.getAppDir = async () => {
     .toString()
     .split('\n')
     .map(s => s.split(' ').filter(Boolean))
-    .find(p => p[4] && (/discord-?canary$/i).test(p[4]) && p.includes('--type=renderer'));
+    .find(p => p[4] && (/discord/i).test(p[4]) && p.includes('--type=renderer'));
 
   if (!discordProcess) {
     let discordPath = KnownLinuxPaths.find(path => existsSync(path));
@@ -38,8 +38,8 @@ exports.getAppDir = async () => {
       });
 
       const askPath = () => new Promise(resolve => readlineInterface.question('> ', resolve));
-      console.log(`${AnsiEscapes.YELLOW}Failed to locate Discord Canary installation folder.${AnsiEscapes.RESET}`, '\n');
-      console.log('Please provide the path of your Discord Canary installation folder');
+      console.log(`${AnsiEscapes.YELLOW}Failed to locate Discord installation folder.${AnsiEscapes.RESET}`, '\n');
+      console.log('Please provide the path of your Discord installation folder');
       discordPath = await askPath();
       readlineInterface.close();
 
