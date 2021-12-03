@@ -241,10 +241,7 @@ module.exports = class UpdaterSettings extends React.PureComponent {
   }
 
   renderUnsupported () {
-    const body = <p>
-      {Messages.POWERCORD_UPDATES_UNSUPPORTED_DESC.format({ releaseChannel: window.GLOBAL_ENV.RELEASE_CHANNEL })}
-    </p>;
-    return this._renderFormNotice(Messages.POWERCORD_UPDATES_UNSUPPORTED_TITLE, body);
+    
   }
 
   _renderFormNotice (title, body) {
