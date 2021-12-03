@@ -7,7 +7,9 @@ See the [installation page of the Powercord Wiki](https://github.com/powercord-o
 
 # How can I install Powercord on Stable or PTB?
 Powercord can crash your Discord, but you can install it on [my repository](https://github.com/yeongaori/powerstable).
+
 You can get Powercord for PTB [here](https://github.com/yeongaori1/powerptb).
+
 You can get Powercord for Canary [here](https://github.com/powercord-org/powercord).
 
 # Is this against the ToS?
